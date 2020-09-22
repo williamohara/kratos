@@ -48,10 +48,12 @@ func servePublic(d driver.Driver, wg *sync.WaitGroup, cmd *cobra.Command, args [
 		router,
 		r.Writer(),
 		l,
-		c.SelfPublicURL().Path,
-		c.SelfPublicURL().Hostname(),
+		c.SessionPath(),
+		c.SessionDomain(),
 		!flagx.MustGetBool(cmd, "dev"),
 	)
+	l.Debugf("CSRF: Cookie session path: %s", c.SessionPath())
+	l.Debugf("CSRF: Cookie session domain: %s", c.SessionDomain())
 	r.WithCSRFHandler(csrf)
 	n.UseHandler(r.CSRFHandler())
 

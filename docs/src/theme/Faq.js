@@ -3,14 +3,14 @@ import cn from 'classnames'
 import styles from './faq.module.css'
 
 const Question = ({ children, tags }) => (
-  <div className={cn(tags)}>{children}</div>
+  <div className={cn(tags.map((tag) => styles[tag]))}>{children}</div>
 )
 
 const TagButton = ({ tag, isSelected, children, toggleSelected }) => (
   <li
     className={cn(
       { [styles.selected]: isSelected },
-      tag + '_src-theme-',
+      styles[tag],
       'pills',
       'pills__item',
       { 'styles.pills__item--active': isSelected }

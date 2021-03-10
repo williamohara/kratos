@@ -104,7 +104,7 @@ quickstart:
 
 .PHONY: quickstart-dev
 quickstart-dev:
-		docker build -f .docker/Dockerfile-build -t oryd/kratos:latest-sqlite .
+		docker build -f .docker/Dockerfile-build -t oryd/kratoss:latest-sqlite .
 		docker-compose -f quickstart.yml -f quickstart-standalone.yml -f quickstart-latest.yml up --build --force-recreate
 
 # Formats the code
@@ -147,3 +147,8 @@ migrations-render-replace: .bin/cli
 .PHONY: migratest-refresh
 migratest-refresh:
 		cd persistence/sql/migratest; go test -tags sqlite,refresh -short .
+
+# .PHONY: pack
+# pack: .bin/pkger
+# 		pkger -exclude node_modules -exclude docs -exclude .git -exclude .github -exclude .bin -exclude test -exclude script -exclude contrib
+

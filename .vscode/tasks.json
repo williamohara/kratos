@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+    {
+      "label": "bridge-to-kubernetes.service",
+      "type": "bridge-to-kubernetes.service",
+      "service": "kratos-public",
+      "ports": [
+        4433
+      ],
+      "targetCluster": "subscripify-dev2-cluster",
+      "targetNamespace": "default",
+      "useKubernetesServiceEnvironmentVariables": true
+    }
+  ]
+}

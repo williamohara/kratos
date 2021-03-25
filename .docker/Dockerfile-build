@@ -4,10 +4,10 @@ RUN apk -U --no-cache add build-base git gcc bash
 
 WORKDIR /go/src/github.com/ory/kratos
 
-COPY go.mod go.mod
-COPY go.sum go.sum
-COPY internal/httpclient/go.* internal/httpclient/
-COPY corp/go.* corp/
+ADD https://github.com/williamohara/kratos/blob/master/go.mod go.mod
+ADD go.sum go.sum
+ADD internal/httpclient/go.* internal/httpclient/
+ADD corp/go.* corp/
 
 ENV GO111MODULE on
 ENV CGO_ENABLED 1

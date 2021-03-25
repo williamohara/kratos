@@ -4,8 +4,8 @@ RUN apk -U --no-cache add build-base git gcc bash
 
 WORKDIR /go/src/github.com/ory/kratos
 
-ADD go.mod go.mod
-ADD go.sum go.sum
+#ADD go.mod go.mod
+#ADD go.sum go.sum
 ADD internal/httpclient/go.* internal/httpclient/
 ADD corp/go.* corp/
 

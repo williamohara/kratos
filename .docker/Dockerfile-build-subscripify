@@ -4,17 +4,17 @@ RUN apk -U --no-cache add build-base git gcc bash
 
 WORKDIR /go/src/github.com/ory/kratos
 
-ADD go.mod go.mod
-ADD go.sum go.sum
-ADD internal/httpclient/go.* internal/httpclient/
-ADD corp/go.* corp/
+ADD https://github.com/williamohara/kratos/blob/master/go.mod go.mod
+ADD https://github.com/williamohara/kratos/blob/master/go.sum go.sum
+ADD https://github.com/williamohara/kratos/blob/master/internal/httpclient/go.* internal/httpclient/
+ADD https://github.com/williamohara/kratos/blob/master/corp/go.* corp/
 
 ENV GO111MODULE on
 ENV CGO_ENABLED 1
 
 RUN go mod download
 
-COPY . .
+ADD https://github.com/williamohara/kratos/blob/master/. .
 
 RUN go build -tags sqlite -o /usr/bin/kratos
 
